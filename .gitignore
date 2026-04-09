@@ -22,3 +22,17 @@ venv
 node_modules
 .sass-cache
 .claude
+
+# Added by automated healthcheck
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+.env
+.env.*
+*.sqlite3
+*.db
