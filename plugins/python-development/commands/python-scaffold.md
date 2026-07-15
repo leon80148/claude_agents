@@ -272,11 +272,12 @@ DEBUG=True
 API_V1_PREFIX="/api/v1"
 ALLOWED_ORIGINS=["http://localhost:3000"]
 
-# Database
-DATABASE_URL="postgresql://user:pass@localhost:5432/dbname"
+# Database — replace placeholders locally; never commit credentials
+DATABASE_URL="postgresql://<db-user>:<db-password>@localhost:5432/<db-name>"
 
-# Security
-SECRET_KEY="your-secret-key-here"
+# Security — generate a unique value for local/runtime configuration
+# Example generator: python -c "import secrets; print(secrets.token_urlsafe(32))"
+SECRET_KEY="<generate-a-unique-secret;do-not-commit>"
 ```
 
 **Makefile**:

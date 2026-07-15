@@ -179,7 +179,7 @@ def app_config():
     """Session-scoped fixture - created once per test session."""
     return {
         "database_url": "postgresql://localhost/test",
-        "api_key": "test-key",
+        "api_key": "example-non-secret-session-value",
         "debug": True
     }
 
@@ -445,7 +445,7 @@ class Config:
     """Configuration class."""
 
     def __init__(self):
-        self.api_key = "production-key"
+        self.api_key = "example-non-secret-production-value"
 
     def get_api_key(self):
         return self.api_key
@@ -454,8 +454,8 @@ class Config:
 def test_monkeypatch_attribute(monkeypatch):
     """Test monkeypatching object attributes."""
     config = Config()
-    monkeypatch.setattr(config, "api_key", "test-key")
-    assert config.get_api_key() == "test-key"
+    monkeypatch.setattr(config, "api_key", "example-non-secret-test-value")
+    assert config.get_api_key() == "example-non-secret-test-value"
 ```
 
 ### Pattern 8: Temporary Files and Directories
